@@ -11,6 +11,9 @@ const weatherSlice = createSlice({
         builder.addCase(fetchWeather.fulfilled, (state, action) => {
             state.data = action.payload;
         })
+        builder.addCase(fetchWeather.rejected, (state, action) => {
+            state.data = action.payload;
+        })
     },
 });
 

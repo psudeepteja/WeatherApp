@@ -11,14 +11,21 @@ const WeatherCard = ({ data }) => {
     return (
         <Card>
             <CardContent>
-                <Typography variant="h5">{data.name}</Typography>
-                {data?.weather?.map(info => (
-                    <Typography variant="body1">{info.main}: {info.description}</Typography>
-                ))}
-                <Typography variant="body1">Temperature: {data?.main?.temp}°C</Typography>
-                <Typography variant="body1">Wind: {data?.wind?.speed} KMPH</Typography>
+                {data?.message ? (
+                    <Typography variant="h5">{data.message}</Typography>
+                ) : (
+                    <>
+                        < Typography variant="h5">{data.name}</Typography>
+                        {data?.weather?.map(info => (
+                            <Typography variant="body1">{info.main}: {info.description}</Typography>
+                        ))
+                        }
+                        <Typography variant="body1">Temperature: {data?.main?.temp}°C</Typography>
+                        <Typography variant="body1">Wind: {data?.wind?.speed} KMPH</Typography>
+                    </>
+                )}
             </CardContent>
-        </Card>
+        </Card >
     );
 };
 
