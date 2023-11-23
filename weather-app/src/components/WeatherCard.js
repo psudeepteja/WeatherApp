@@ -32,8 +32,8 @@ const WeatherCard = ({ data }) => {
                             </Grid>
                             <Grid item lg={9} md={9} xs={12}>
                                 <Grid className='weatherCard'>
-                                    {data?.weather?.map(info => (
-                                        <Typography variant="body1">{info.main}: {info.description}</Typography>
+                                    {data?.weather?.map((info, i) => (
+                                        <Typography key={i} variant="body1">{info.main}: {info.description}</Typography>
                                     ))
                                     }
                                     <Typography variant="body1">Temperature: {temperatureInCelsius.toFixed(2)}°C</Typography>
