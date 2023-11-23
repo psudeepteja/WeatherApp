@@ -1,0 +1,8 @@
+.weatherCard{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.weatherCardText{
+    display: flex;
+}

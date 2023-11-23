@@ -1,10 +1,20 @@
-import { configureStore } from '@reduxjs/toolkit';
-import weatherReducer from '../feature/slices/weatherSlice';
+import { configureStore } from "@reduxjs/toolkit";
+import logger from "redux-logger";
+import { persistStore } from "redux-persist";
+import { persistedReducer } from "./rootReducer";
 
-const store = configureStore({
-    reducer: {
-        weather: weatherReducer,
-    },
+const preloadedState = {};
+
+export const store = configureStore({
+    reducer: persistedReducer,
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+            immutableCheck: false,
+            serializableCheck: false,
+        }).concat(logger),
+    devTools: process.env.NODE_ENV !== "production",
+    preloadedState,
+    enhancers: [],
 });
 
-export default store;
+export const persistor = persistStore(store);
