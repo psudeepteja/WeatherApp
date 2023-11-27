@@ -1,8 +1,6 @@
-.weatherCard{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
 .weatherCardText{
     display: flex;
+    padding: 10px;
+    gap: 10px;
+    text-align: center;
 }
